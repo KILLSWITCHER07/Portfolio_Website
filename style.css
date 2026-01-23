@@ -1,0 +1,434 @@
+:root {
+  --f1-red: #ff1801;
+  --f1-dark: #15151e;
+  --f1-carbon: #1f1f27;
+  --f1-silver: #e1e1e1;
+  --neon-cyan: #00f0ff;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --font-racing: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--f1-dark);
+  color: var(--f1-silver);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  background-image: 
+    linear-gradient(rgba(21, 21, 30, 0.95), rgba(21, 21, 30, 0.98)),
+    repeating-linear-gradient(45deg, #000 00px, #000 02px, #222 02px, #222 04px);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--f1-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--f1-red);
+  border-radius: 4px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+  font-family: var(--font-racing);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo span {
+  color: var(--f1-red);
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a {
+  color: var(--f1-silver);
+  text-decoration: none;
+  font-family: var(--font-racing);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--f1-red);
+  text-shadow: 0 0 10px rgba(255, 24, 1, 0.5);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 24, 1, 0.1) 0%, transparent 70%);
+  animation: pulse-glow 4s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.hero h1 {
+  font-family: var(--font-racing);
+  font-size: 6rem;
+  line-height: 1;
+  text-transform: uppercase;
+  font-style: italic;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 .glitch {
+  display: block;
+  color: var(--f1-silver);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  border-left: 3px solid var(--f1-red);
+  padding-left: 1rem;
+  text-align: left;
+}
+
+.cta-btn {
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid var(--f1-red);
+  color: #fff;
+  font-family: var(--font-racing);
+  text-transform: uppercase;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  text-decoration: none;
+  z-index: 1;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.cta-btn:hover {
+  background: var(--f1-red);
+  box-shadow: 0 0 20px rgba(255, 24, 1, 0.6);
+  transform: skewX(-10deg);
+}
+
+/* Grid Layout */
+.grid-section {
+  padding: 5rem 10%;
+}
+
+.section-title {
+  font-family: var(--font-racing);
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 4px solid var(--f1-red);
+  display: inline-block;
+  padding-right: 2rem;
+  font-style: italic;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 2rem;
+  border-radius: 4px; /* Slightly rapid corners */
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--f1-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--f1-red);
+}
+
+.card:hover::after {
+  transform: scaleX(1);
+}
+
+.card h3 {
+  font-family: var(--font-racing);
+  margin-bottom: 1rem;
+  color: var(--neon-cyan);
+}
+
+/* Stats Section (Telemetry) */
+.telemetry {
+  display: flex;
+  justify-content: space-around;
+  background: #000;
+  padding: 4rem 5%;
+  border-top: 2px solid var(--f1-red);
+  border-bottom: 2px solid var(--f1-red);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-racing);
+  font-size: 4rem;
+  color: #fff;
+  display: block;
+}
+
+.stat-label {
+  color: var(--f1-red);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--glass-border);
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.circuit-decoration {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+/* About Section Integration */
+.telemetry-about {
+  background: var(--f1-dark);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 2px solid var(--f1-red); /* Matches your telemetry border style */
+}
+
+.about-container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Using your existing .section-title style but centering it */
+.telemetry-about .section-title {
+  display: inline-block;
+  padding-right: 0; 
+  padding-left: 0;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem; /* Slightly smaller than hero to keep hierarchy */
+  border-bottom: 4px solid var(--f1-red);
+}
+
+.content-wrapper {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 3rem;
+  backdrop-filter: blur(5px);
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  /* The clip-path above matches your .cta-btn's "rapid corner" look */
+}
+
+.about-p {
+  color: var(--f1-silver);
+  font-family: var(--font-body);
+  line-height: 1.8;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.about-p strong {
+  color: var(--f1-red);
+  font-family: var(--font-racing);
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.red-accent-bar {
+  width: 60px;
+  height: 4px;
+  background: var(--f1-red);
+  margin: 2rem auto 0;
+  transform: skewX(-20deg); /* Gives it that F1 "speed" lean */
+}
+.contact-footer {
+  background-color: var(--f1-dark);
+  border-top: 2px solid var(--f1-red);
+  text-align: center;
+  padding: 80px 10%;
+}
+
+.contact-description {
+  font-family: var(--font-body);
+  color: var(--f1-silver);
+  margin-bottom: 50px;
+  opacity: 0.8;
+}
+
+/* The 3-column layout from your photo */
+.contact-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-label {
+  font-family: var(--font-racing);
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.contact-item p, 
+.email-address {
+  font-family: var(--font-body);
+  color: var(--f1-silver);
+  text-decoration: none;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Email underline to match the reference style but in F1 red */
+.email-address {
+  border-bottom: 1px solid var(--f1-red);
+  transition: opacity 0.3s;
+}
+
+.email-address:hover {
+  opacity: 0.7;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+  font-size: 1.8rem;
+}
+
+.social-links a {
+  color: var(--f1-silver);
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--f1-red);
+}
+
+/* Mobile check: stack columns on small screens */
+@media (max-width: 768px) {
+  .contact-columns {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+/* 1. The container must be relative */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 2. Push the video to the back */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* This moves it behind the content */
+}
+
+/* 3. Pull your name to the front */
+.hero-content {
+  position: relative; 
+  z-index: 10; /* This ensures it sits on top of the video */
+  color: white; /* Make sure the text color stands out */
+  text-align: center;
+}
