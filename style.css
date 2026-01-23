@@ -432,3 +432,58 @@ footer {
   color: white; /* Make sure the text color stands out */
   text-align: center;
 }
+/* Mobile Optimization (Screens 768px and smaller) */
+@media screen and (max-width: 768px) {
+  /* Fix Hero Header Text Overlap */
+  .hero h1 {
+    font-size: 3.5rem; /* Drastically reduce from 6rem to fit phone screen */
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem; /* Adjust from 1.5rem */
+    max-width: 90%;
+    margin: 0 auto 1.5rem;
+    text-align: center; /* Center text on mobile for better balance */
+    border-left: none;
+    border-bottom: 3px solid var(--f1-red); /* Move accent to bottom */
+    padding: 0 0 10px 0;
+  }
+
+  /* Stack Header/Navigation vertically or simplify */
+  header {
+    padding: 1rem 5%;
+    flex-direction: column; /* Stacks logo above nav links */
+    gap: 10px;
+  }
+
+  nav ul {
+    gap: 1rem;
+    flex-wrap: wrap; /* Allows links to wrap if screen is too narrow */
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 0.75rem;
+  }
+
+  /* Stack Project Cards */
+  .cards {
+    grid-template-columns: 1fr; /* Force 1 column instead of 2 or 3 */
+    gap: 1.5rem;
+  }
+
+  /* Adjust About Section padding */
+  .grid-section {
+    padding: 3rem 5%; /* Less side padding on small screens */
+  }
+
+  .content-wrapper {
+    padding: 1.5rem; /* More room for text */
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
