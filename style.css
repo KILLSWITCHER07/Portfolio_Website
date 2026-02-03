@@ -526,3 +526,88 @@ footer {
 .badge i {
   font-size: 0.75rem;
 }
+/* Project Detail Page Specifics */
+.project-page .project-detail-hero {
+    padding-top: 150px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(255, 24, 1, 0.05), transparent);
+}
+
+.status-tag {
+    font-family: var(--font-racing);
+    color: var(--neon-cyan);
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 for info, 1/3 for specs */
+    gap: 40px;
+    align-items: start;
+}
+
+.project-info h3 {
+    font-family: var(--font-racing);
+    color: var(--f1-red);
+    margin: 2rem 0 1rem 0;
+    font-size: 1.2rem;
+}
+
+.spec-list {
+    width: 100%;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--glass-border);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.spec-item span {
+    color: var(--f1-red);
+    font-weight: bold;
+    font-family: var(--font-racing);
+    font-size: 0.8rem;
+}
+
+/* Mobile responsive project grid */
+@media screen and (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Centering the container */
+.repo-button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 3rem; /* Adds space above the button */
+    padding-bottom: 2rem;
+}
+
+/* Making the button bigger and more prominent */
+.big-repo-btn {
+    padding: 20px 50px; /* Larger hit area */
+    font-size: 1rem;  /* Bigger text */
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Adding an extra glow effect on hover */
+.big-repo-btn:hover {
+    transform: scale(1.1) skewX(-10deg); /* Grows and leans when hovered */
+    background: var(--f1-red);
+    box-shadow: 0 0 30px rgba(255, 24, 1, 0.8);
+}
+
+.big-repo-btn i {
+    font-size: 1rem; /* Makes the GitHub icon pop */
+}
