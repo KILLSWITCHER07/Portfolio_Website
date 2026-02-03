@@ -487,3 +487,42 @@ footer {
     font-size: 2rem;
   }
 }
+/* Container for the badges */
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0 20px 0;
+}
+
+/* Individual Badge Styling */
+.badge {
+  background: rgba(255, 255, 255, 0.05); /* Subtle dark background */
+  border: 1px solid rgba(255, 25, 25, 0.4); /* F1 Red border */
+  color: #fff;
+  padding: 5px 12px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px; /* Sharp edges look more mechanical than rounded ones */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Hover Effect: "Activates" the badge */
+.badge:hover {
+  background: #ff1919; /* Solid F1 Red */
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 25, 25, 0.6);
+  transform: translateY(-2px);
+  border-color: #ff1919;
+}
+
+/* Font Awesome Icon sizing inside badge */
+.badge i {
+  font-size: 0.75rem;
+}
