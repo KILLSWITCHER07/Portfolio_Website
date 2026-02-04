@@ -695,72 +695,60 @@ footer {
     transform-origin: center;
     transition: transform 0.1s linear; /* Makes movement look smooth like a live broadcast */
 }
-/* Mobile Optimization for Career Circuit */
-@media screen and (max-width: 500px) {
+/* --- MOBILE RESPONSIVE REPAIR --- */
+@media screen and (max-width: 768px) {
+    /* Reset the container to allow vertical scrolling */
     .experience-track-container {
-        padding: 60px 5%;
+        padding: 60px 20px;
+        height: auto;
         overflow: visible;
+        display: block;
     }
 
+    /* Hide the SVG track on mobile - it's too wide for portrait */
+    .track-svg {
+        display: none;
+    }
+
+    /* Reset the wrapper to stack cards vertically */
     .track-wrapper {
-        height: auto; /* Let it grow with content */
+        height: auto;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        padding-left: 30px; /* Space for the vertical line */
-    }
-
-    /* Hide the curved SVG track and car on mobile if they don't scale well */
-    .track-svg {
-        display: none; 
-    }
-
-    /* Create a vertical "Racing Line" for mobile */
-    .track-wrapper::before {
-        content: '';
-        position: absolute;
-        left: 10px;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: repeating-linear-gradient(
-            to bottom,
-            #333 0, #333 10px,
-            transparent 10px, transparent 20px
-        );
-        border-left: 2px solid var(--f1-red);
+        gap: 30px;
+        padding-left: 20px;
+        border-left: 2px dashed var(--f1-red); /* Vertical Racing Line */
     }
 
     .track-milestones {
-        position: relative; /* Reset from absolute */
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
+        position: relative; /* Change from absolute */
         width: 100%;
         height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
     }
 
+    /* Force milestones to ignore their 'left' and 'top' coordinates */
     .milestone {
-        position: relative !important; /* Force stack */
+        position: relative !important; 
         left: 0 !important;
         top: 0 !important;
         width: 100%;
-        opacity: 1 !important;
         transform: none !important;
     }
 
     .milestone-content {
-        margin: 0 !important;
         width: 100%;
+        margin: 0 !important;
         padding: 20px;
-        /* Matches your project card look */
+        /* Re-apply the F1 corner cut for mobile */
         clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
     }
 
     .experience-track-container .section-title {
         font-size: 2rem;
         margin-bottom: 2rem;
-        width: 100%;
         text-align: center;
     }
 }
