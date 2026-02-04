@@ -695,3 +695,72 @@ footer {
     transform-origin: center;
     transition: transform 0.1s linear; /* Makes movement look smooth like a live broadcast */
 }
+/* Mobile Optimization for Career Circuit */
+@media screen and (max-width: 768px) {
+    .experience-track-container {
+        padding: 60px 5%;
+        overflow: visible;
+    }
+
+    .track-wrapper {
+        height: auto; /* Let it grow with content */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 30px; /* Space for the vertical line */
+    }
+
+    /* Hide the curved SVG track and car on mobile if they don't scale well */
+    .track-svg {
+        display: none; 
+    }
+
+    /* Create a vertical "Racing Line" for mobile */
+    .track-wrapper::before {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: repeating-linear-gradient(
+            to bottom,
+            #333 0, #333 10px,
+            transparent 10px, transparent 20px
+        );
+        border-left: 2px solid var(--f1-red);
+    }
+
+    .track-milestones {
+        position: relative; /* Reset from absolute */
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+        height: auto;
+    }
+
+    .milestone {
+        position: relative !important; /* Force stack */
+        left: 0 !important;
+        top: 0 !important;
+        width: 100%;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .milestone-content {
+        margin: 0 !important;
+        width: 100%;
+        padding: 20px;
+        /* Matches your project card look */
+        clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    }
+
+    .experience-track-container .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        width: 100%;
+        text-align: center;
+    }
+}
