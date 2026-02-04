@@ -696,7 +696,7 @@ footer {
     transition: transform 0.1s linear; /* Makes movement look smooth like a live broadcast */
 }
 /* Mobile Optimization for Career Circuit */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
     .experience-track-container {
         padding: 60px 5%;
         overflow: visible;
