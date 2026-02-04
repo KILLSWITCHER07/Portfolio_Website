@@ -288,6 +288,7 @@ footer {
   width: 100%;
   text-align: center;
   z-index: 1;
+  
 }
 
 /* Using your existing .section-title style but centering it */
@@ -316,6 +317,7 @@ footer {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
   text-align: center;
+  
 }
 
 .about-p strong {
@@ -549,9 +551,10 @@ footer {
 
 .project-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* 2/3 for info, 1/3 for specs */
+    grid-template-columns: 2fr 1fr; /*p 2/3 for info, 1/3 for specs */
     gap: 40px;
     align-items: start;
+    
 }
 
 .project-info h3 {
@@ -616,4 +619,79 @@ footer {
 
 .big-repo-btn i {
     font-size: 1rem; /* Makes the GitHub icon pop */
+}
+/* --- Centered Career Circuit --- */
+.experience-track-container {
+    position: relative;
+    background: var(--f1-dark);
+    padding: 100px;
+    width: 100vw; /* Match the 10% side padding of .grid-section */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the whole column content */
+    border-top: 2px solid var(--f1-red);
+    overflow: hidden;
+}
+
+.experience-track-container .section-title {
+    text-align: center; /* Changed from left to center */
+    display: block; 
+    margin: 0 auto 5rem auto; /* Added extra bottom margin for breathing room */
+    border-bottom: 4px solid var(--f1-red);
+    width: fit-content;
+}
+
+.track-wrapper {
+    position: relative;
+    width: 100%;      /* Fill the entire container */
+    height: 600px;    /* Increased height for more vertical curve depth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.track-svg {
+    width: 110%;      /* Slightly wider than 100% to let the track bleed off-edge */
+    height: 100%;
+    overflow: visible; 
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+}
+
+/* Keep your existing Milestone and Car Marker code below this */
+.track-milestones {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.milestone {
+    position: absolute;
+    width: 250px;
+    pointer-events: all;
+    z-index: 10;
+}
+
+
+
+.milestone-content {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    border-left: 4px solid var(--f1-red);
+    transition: transform 0.3s ease;
+}
+
+.milestone:hover .milestone-content {
+    transform: scale(1.1);
+    border-color: var(--neon-cyan);
+}
+#car-marker {
+    /* Ensures the car rotates around its own center, not the SVG corner */
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.1s linear; /* Makes movement look smooth like a live broadcast */
 }
